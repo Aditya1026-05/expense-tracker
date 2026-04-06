@@ -72,10 +72,10 @@ def index():
     cat_q = db.session.query(Expenses.category, func.sum(Expenses.amount))
 
     if start_date:
-        cat_q = cat_q.filter(expenses.date >= start_date)
+        cat_q = cat_q.filter(Expenses.date >= start_date)
 
     if end_date:
-        cat_q = cat_q.filter(expenses.date <= end_date)
+        cat_q = cat_q.filter(Expenses.date <= end_date)
 
     if selected_category:
         cat_q = cat_q.filter(Expenses.category == selected_category)
@@ -89,10 +89,10 @@ def index():
     day_q = db.session.query(Expenses.date, func.sum(Expenses.amount))
 
     if start_date:
-        day_q = day_q.filter(expenses.date >= start_date)
+        day_q = day_q.filter(Expenses.date >= start_date)
 
     if end_date:
-        day_q = day_q.filter(expenses.date <= end_date)
+        day_q = day_q.filter(Expenses.date <= end_date)
 
     if selected_category:
         day_q = day_q.filter(Expenses.category == selected_category)
